@@ -1,4 +1,4 @@
-playwright==1.40.0
-pandas==2.1.4
-streamlit==1.28.1
-faker==20.1.0
+playwright>=1.40.0
+pandas>=2.2.0
+streamlit>=1.30.0
+faker>=20.0.0
