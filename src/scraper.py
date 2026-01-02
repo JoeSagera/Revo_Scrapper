@@ -38,24 +38,9 @@ async def scrape_revolico(query: str) -> list[dict]:
             price_text = await price_elem.inner_text() if price_elem else ""
             url = await link_elem.get_attribute('href') if link_elem else ""
             
-            # Extract currency and amount
-            # Assume price like "150 USD" or "40.000 CUP"
-            parts = price_text.split()
-            if len(parts) >= 2:
-                amount = parts[0].replace('.', '').replace(',', '.')
-                currency = parts[1]
-                try:
-                    price = float(amount)
-                except ValueError:
-                    price = None
-            else:
-                price = None
-                currency = ""
-            
             results.append({
-                'title': title,
-                'price': price,
-                'currency': currency,
+                'titulo': title,
+                'precio_raw': price_text,
                 'url': url
             })
         
